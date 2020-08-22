@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buscador de cervezas</title>
+</head>
+<body>
+  <h1>Buscador de cervezas</h1>
+  <form accept="buscador.groovy">
+    <label>Buscar:</label>
+    <input type="text" name="q">
+    <button type="submit">Buscar</button>
+  </form>
+  <br/>
+  <%
+    if(result){
+      out << "<label>Resultado:</label>"
+      out << "<ul>"
+      result.each { cerveza ->
+        out << """\
+        <!-- Muestra nombre e imagen de la cerveceria obtenida del result  -->
+          <li>${cerveza.nombre} - <img src="${cerveza.urlDeImagen}" alt="Smiley face" height="42" width="42">  </li>
+        """
+      }
+      out << "</ul>"
+    }
+  %>
+</body>
+</html>
